@@ -1,0 +1,44 @@
+import time
+
+ponteiroRam = 0
+ponteiroArray = 0
+ms = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+memoriaRam = [0, 0, 0, 0, 0]
+
+while True:
+  if ponteiroRam < 5:
+    memoriaRam[ponteiroRam] = ms[0]
+    
+    for n in range(len(ms)):
+      if n < len(ms)-1:
+        ms[n] = ms[n+1]
+        
+    ponteiroRam += 1
+    ms.pop()
+    
+    if ms == []:
+          break
+      
+  else:
+    ponteiroRam = 0
+    memoriaRam[ponteiroRam] = ms[0]
+    
+    for n in range(len(ms)):
+      if n < len(ms)-1:
+        ms[n] = ms[n+1]
+    ponteiroRam += 1
+    ms.pop()
+
+    
+  ponteiroArray += 1
+  
+  print(memoriaRam)
+  print(ms)
+  time.sleep(1)
+
+  ponteiroFull = ponteiroRam + 1  
+  total = ponteiroArray + 1
+  
+
+
+print('Nº total de solicitações: {0} \n Nº total de falhas: {1}'.format(ponteiroFull, total))
